@@ -9,7 +9,6 @@ router.put('/like/:id', (req, res) => {
 
 // GET /gallery
 router.get('/', (req, res) => {
-  // code here
   const sqlText = `
     SELECT * FROM gallery
     ORDER BY id ASC;
