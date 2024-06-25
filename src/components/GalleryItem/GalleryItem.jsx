@@ -4,6 +4,10 @@ import axios from "axios";
 import { useState } from "react";
 
 export default function GalleryItem({galleryItem, getGalleryList}) {
+    const [photoToggle, setPhotoToggle] = useState(true);
+     const toggle = () => {
+        setPhotoToggle(!photoToggle);
+     }
     
     const updateLike = (id) => {
         axios.put(`/api/gallery/like/${id}`)
@@ -15,10 +19,8 @@ export default function GalleryItem({galleryItem, getGalleryList}) {
           console.log(error);
         })
       }
-     const [photoToggle, setPhotoToggle] = useState(false);
-     const toggle = () => {
-        setPhotoToggle(!photoToggle);
-     }
+     
+     
     return (
         <Grid item xs={3}>
             <li key={galleryItem.id} data-testid="galleryItem" >
