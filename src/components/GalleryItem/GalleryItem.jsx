@@ -1,9 +1,10 @@
 import { Button, Grid } from "@mui/material";
 import './GalleryItem.css';
 import axios from "axios";
+import { useState } from "react";
 
 export default function GalleryItem({galleryItem, getGalleryList}) {
-   
+    
     const updateLike = (id) => {
         axios.put(`/api/gallery/like/${id}`)
         .then((response) => {
@@ -14,16 +15,20 @@ export default function GalleryItem({galleryItem, getGalleryList}) {
           console.log(error);
         })
       }
-
+     const [photoToggle, setPhotoToggle] = useState(false);
+     const toggle = () => {
+        setPhotoToggle(!photoToggle);
+     }
     return (
         <Grid item xs={3}>
             <li key={galleryItem.id} data-testid="galleryItem" >
                 <h3>{galleryItem.title}</h3>
-                <button type="button"><img src={galleryItem.url} alt="" /></button>
+                <button onClick={() => toggle()} type="button">{photoToggle ? <img src={galleryItem.url} alt="" /> : <p>{galleryItem.description}</p> }</button>
                 <Button data-testid="like" onClick={() => updateLike(galleryItem.id)}>Like</Button>
                 <p>{galleryItem.likes} people like this</p>
             </li>
         </Grid>
-                     
+                    
+  
     )
 }
