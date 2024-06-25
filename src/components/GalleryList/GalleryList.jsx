@@ -1,9 +1,8 @@
  import { Grid } from '@mui/material';
 import GalleryItem from '../GalleryItem/GalleryItem';
+import axios from "axios";
 
-function GalleryList(props) {
-
-  let galleryList = props.galleryList;
+function GalleryList({galleryList, getGalleryList}) {
 
   return (
     <>
@@ -12,8 +11,8 @@ function GalleryList(props) {
           <Grid container spacing={2}>
             {
             galleryList.map(
-              (galleryItem) => (
-                <GalleryItem galleryItem={galleryItem} />
+              (galleryItem, updateLike) => (
+                <GalleryItem galleryItem={galleryItem} getGalleryList={getGalleryList}/>
               )
             )
             }

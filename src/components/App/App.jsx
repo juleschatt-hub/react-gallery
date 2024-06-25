@@ -11,7 +11,10 @@ function App() {
     getGalleryList();
   }, [])
 
+  
 
+
+  
   const getGalleryList = () => {
     axios.get('/api/gallery')
       .then((response) => {
@@ -27,8 +30,7 @@ function App() {
         <header>
           <h1>React Gallery</h1>
         </header>
-      {/* testing brancgh stuff */}
-        <GalleryList galleryList={galleryList} />
+        <GalleryList galleryList={galleryList} getGalleryList={getGalleryList} />
       </div>
     );
 }
