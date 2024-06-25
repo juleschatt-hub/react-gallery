@@ -23,7 +23,7 @@ export default function GalleryItem({galleryItem, getGalleryList}) {
         <Grid item xs={3}>
             <li key={galleryItem.id} data-testid="galleryItem" >
                 <h3>{galleryItem.title}</h3>
-                <button onClick={() => toggle()} type="button">{photoToggle ? <img src={galleryItem.url} alt="" /> : <p>{galleryItem.description}</p> }</button>
+                <button data-testid="toggle" onClick={() => toggle()} type="button">{photoToggle ? <img src={galleryItem.url} alt={galleryItem.description}  /> : <p>{galleryItem.description}</p> }</button>
                 <Button data-testid="like" onClick={() => updateLike(galleryItem.id)}>Like</Button>
                 <p>{galleryItem.likes} people like this</p>
             </li>
