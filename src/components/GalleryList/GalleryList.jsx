@@ -1,4 +1,5 @@
- import GalleryItem from '../GalleryItem/GalleryItem';
+ import { Grid } from '@mui/material';
+import GalleryItem from '../GalleryItem/GalleryItem';
 
 function GalleryList(props) {
 
@@ -6,14 +7,19 @@ function GalleryList(props) {
 
   return (
     <>
+
       <ul data-testid="galleryList">
-        {
+        
+          <Grid container spacing={2}>
+          {
           galleryList.map(
             (galleryItem) => (
               <GalleryItem galleryItem={galleryItem} />
             )
           )
         }
+          </Grid>
+        
       </ul>
     </>
   );

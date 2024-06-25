@@ -1,12 +1,16 @@
+import { Button, Grid } from "@mui/material";
+
 export default function GalleryItem(props) {
     let galleryItem = props.galleryItem;
 
     return (
-        
-        <li key={galleryItem.id} data-testid="galleryItem">
-            {galleryItem.title}
-            <img src={galleryItem.url} alt="" /> 
-        </li>
+        <Grid item xs={3}>
+            <li key={galleryItem.id} data-testid="galleryItem" >
+                <h3>{galleryItem.title}</h3>
+                <img src={galleryItem.url} alt="" />
+                <Button>Like</Button>
+            </li>
+        </Grid>
                      
     )
 }
