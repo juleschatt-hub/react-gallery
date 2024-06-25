@@ -28,7 +28,6 @@ function App() {
           <h1>React Gallery</h1>
         </header>
       {/* testing brancgh stuff */}
-        <p>The gallery goes here</p>
         <GalleryList galleryList={galleryList} />
       </div>
     );

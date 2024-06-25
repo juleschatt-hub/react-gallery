@@ -8,16 +8,15 @@ function GalleryList(props) {
   return (
     <>
 
-      <ul data-testid="galleryList">
-        
+      <ul data-testid="galleryList" style={{listStyleType: "none"}}>     
           <Grid container spacing={2}>
-          {
-          galleryList.map(
-            (galleryItem) => (
-              <GalleryItem galleryItem={galleryItem} />
+            {
+            galleryList.map(
+              (galleryItem) => (
+                <GalleryItem galleryItem={galleryItem} />
+              )
             )
-          )
-        }
+            }
           </Grid>
         
       </ul>

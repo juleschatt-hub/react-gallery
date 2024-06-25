@@ -4,7 +4,17 @@ const pool = require('../modules/pool.js');
 
 // PUT /gallery/like/:id
 router.put('/like/:id', (req, res) => {
-  // code here
+  let {id} = req.params;
+  const sqlText = `UPDATE "gallery" SET "likes" = "likes" +1 Where "id" = $1;`;
+
+  pool.query(sqlText, [id])
+    .then((dbResult) => {
+      console.log('Hitting put route', dbResult);
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log(`error with like put route query ${sqlText}`, err);
+    })
 });
 
 // GET /gallery
