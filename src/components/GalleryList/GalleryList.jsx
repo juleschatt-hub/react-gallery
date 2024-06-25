@@ -1,4 +1,4 @@
-// import GalleryItem from '../GalleryItem/GalleryItem';
+ import GalleryItem from '../GalleryItem/GalleryItem';
 
 function GalleryList(props) {
 
@@ -6,11 +6,11 @@ function GalleryList(props) {
 
   return (
     <>
-      <ul>
+      <ul data-testid="galleryList">
         {
           galleryList.map(
             (galleryItem) => (
-              JSON.stringify(galleryList)
+              <GalleryItem galleryItem={galleryItem} />
             )
           )
         }
